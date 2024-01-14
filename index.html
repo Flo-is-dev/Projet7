@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les petits plats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <div class="logo-container">
+                <img src="./assets/img/Les petits plats.svg" alt="Logo">
+            </div>
+            <div class="txt-container">
+                <h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES
+                    DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+                </h1>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Rechercher une recette, un ingrédient, ...">
+                    <button id="removeSearch"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="search">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    </button>
+                </div>
+
+            </div>
+
+        </header>
+
+        <aside>
+
+            <div class="tri-container" id="ingredients">
+                <div class="tri-title">
+                    <h3> Ingrédients </h3>
+                    <i class="fa-solid fa-chevron-down "></i>
+                </div>
+
+                <div class="tri-search hidden-bloc">
+                    <input type="text">
+                    <button id="tri-search">
+                        <span><i class="fa-solid fa-magnifying-glass fa-xs"></i></span>
+                    </button>
+                </div>
+
+                <div class="tri-tag hidden-bloc">
+                    <p>Crème de coco</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <div class="tri-list hidden-bloc">
+
+                </div>
+            </div>
+
+
+            <div class="tri-container" id="appareils">
+                <div class="tri-title">
+                    <h3> Appareils </h3>
+                    <i class="fa-solid fa-chevron-down "></i>
+                </div>
+                <div class="tri-search hidden-bloc">
+                    <input type="text">
+                    <button id="tri-search">
+                        <span><i class="fa-solid fa-magnifying-glass fa-xs"></i></span>
+                    </button>
+                </div>
+
+                <div class="tri-tag hidden-bloc">
+                    <p>Crème de coco</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <div class="tri-list hidden-bloc">
+
+                </div>
+
+
+            </div>
+
+            <div class="tri-container" id="ustensiles">
+                <div class="tri-title">
+                    <h3> Ustensiles </h3>
+                    <i class="fa-solid fa-chevron-down "></i>
+                </div>
+                <div class="tri-search hidden-bloc">
+                    <input type="text">
+                    <button id="tri-search">
+                        <span><i class="fa-solid fa-magnifying-glass fa-xs"></i></span>
+                    </button>
+                </div>
+
+                <div class="tri-tag hidden-bloc">
+                    <p>Crème de coco</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <div class="tri-list hidden-bloc">
+
+                </div>
+
+
+
+            </div>
+
+            <h3 id="recetteNumber">1500 recettes</h3>
+        </aside>
+        <section class="tag-section">
+            <!-- <div class="tag-element">
+                <p>Crème de coco</p>
+                <i class="fa-solid fa-xmark"></i>
+            </div> -->
+        </section>
+
+        <section class="card-section">
+
+        </section>
+    </main>
+
+    <script src="./assets/scripts/data/recipes.js"></script>
+    <script src="./assets/scripts/components/triListDisplay.js"></script>
+    <script src="./assets/scripts/triListFunctionDisplay.js"></script>
+    <script src="./assets/scripts/components/cardDisplay.js"></script>
+    <script src="./assets/scripts/searchFunctionDisplay.js"></script>
+    <!-- <script src="./assets/scripts/logic/Algo-V1.js"></script> -->
+    <script src="./assets/scripts/logic/Algo-V2.js"></script>
+    <script src="./assets/scripts/affichageNbRcette.js"></script>
+    <script src="./assets/scripts/tagDisplay.js"></script>
+
+
+</body>
+
+</html>

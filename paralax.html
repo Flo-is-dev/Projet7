@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Parallax Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Barre de navigation stylisée (ajustez selon vos besoins) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 50;
+        }
+
+        /* Header avec effet de parallax et hauteur de 80vh */
+        .parallax {
+            height: 80vh;
+            background-image: url("./assets/img/background-header.jpg");
+            /* Remplacez 'your-image.jpg' par le chemin de votre image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: background-position 0.4s ease-out;
+            /* Ajoute une transition fluide pour l'effet de défilement de l'image de fond */
+        }
+
+        /* Contenu du header centré */
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        /* Sections rouges et bleues de 800px de haut */
+        .red-section,
+        .blue-section {
+            height: 800px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .red-section {
+            background-color: red;
+        }
+
+        .blue-section {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- Votre barre de navigation ici -->
+        Navbar
+    </div>
+
+    <header class="parallax">
+        <div class="header-content">
+            <!-- Contenu du header (peut inclure du texte, etc.) -->
+            Header Content
+        </div>
+    </header>
+
+    <section class="red-section">
+        <!-- Contenu de la première section rouge -->
+        Section Rouge
+    </section>
+
+    <section class="blue-section">
+        <!-- Contenu de la seconde section bleue -->
+        Section Bleue
+    </section>
+
+    <script>
+        document.addEventListener('scroll', function () {
+            // Utilisation de requestAnimationFrame pour optimiser les performances
+            requestAnimationFrame(function () {
+                // Effet de parallax pendant le défilement pour le contenu
+                const parallax = document.querySelector('.parallax');
+                let scrollPosition = window.scrollY;
+                parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+
+                // Effet de défilement de l'image de fond du header
+                const header = document.querySelector('.parallax');
+                header.style.backgroundPositionY = -scrollPosition * 0.1 + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>
