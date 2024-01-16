@@ -87,13 +87,15 @@ searchInput.addEventListener("keyup", () => {
   }, 500);
 });
 
+// fonction qui joue l'affichage des Tris et apès la 2nd recherche
+
 // Keyup X 3 avec un search , on exploite le (e)
 searchInputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
   const filteredArray = searchFunction(search);
   let IAUSet = ingredientsSetFunction(filteredArray);
 
-  const resultTriArray = searchTriDisplay(e, IAUSet);
+  const resultTriArray = searchTri(e, IAUSet);
 
   // je gère l'affichage du TRI
 

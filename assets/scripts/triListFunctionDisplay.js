@@ -117,16 +117,29 @@ const displayTriIngredients = (ingredientsSet) => {
 
 // Jy pass un tab de string et retour la string qui correspond, 2 paramètre , tableau et la chaine de string tapé. 3 Eventlistener
 
-//  dénfition de fonction qui sera appelée par le EventListener keyUp et qui tri les tableau de Tri "Set"
-const searchTriDisplay = (e, IAUSet) => {
+//  fonction qui sera appelée par le EventListener keyUp et qui tri les tableau de Tri "Set"
+const searchTri = (e, IAUSet) => {
   let searchWord = e.target.value;
   searchWord = searchWord.toLowerCase();
 
-  const TriFilterArray = IAUSet.filter((item) =>
+  const TriFilteredArray = IAUSet.filter((item) =>
     item.toLowerCase().includes(searchWord)
   );
-  console.log("***TriFilterArray", TriFilterArray);
+  console.log("***TriFilteredArray", TriFilteredArray);
+  console.log("Tag ajouté", searchWord);
 
-  return TriFilterArray;
+  return TriFilteredArray;
+
   // Diminuer la list d'ingrédientet non toutes les recettes.
+};
+
+// fonction qui gère l'affiche une fois le mot clé tri cliqué
+const searchTriDisplay = () => {
+  //   const TriFullFilteredArray = searchFunction(searchWord);
+
+  console.log(searchWord);
+  // *-------AFFICHAGE DEs RECETTEs CARD
+  //   for (let i = 0; i < TriFullFilteredArray.length; i++) {
+  //     cardDisplayHtml(TriFullFilteredArray[i]);
+  //   }
 };

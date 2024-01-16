@@ -29,7 +29,6 @@ chevron.forEach((item) => {
 
 let tagArrayList = [];
 
-// fonction qui joue l'affichage des Tris et apès la 2nd recherche
 const triListElementFunction = () => {
   const triListElement = document.querySelectorAll(".tri-list > li");
   triListElement.forEach((item) => {
