@@ -113,6 +113,8 @@ const displayTriIngredients = (ingredientsSet) => {
   }
 };
 
+triDisplay(recipes);
+
 // -- TRI SEARCH FUNCTION
 
 // Jy pass un tab de string et retour la string qui correspond, 2 paramètre , tableau et la chaine de string tapé. 3 Eventlistener
@@ -126,20 +128,8 @@ const searchTri = (e, IAUSet) => {
     item.toLowerCase().includes(searchWord)
   );
   console.log("***TriFilteredArray", TriFilteredArray);
-  console.log("Tag ajouté", searchWord);
 
   return TriFilteredArray;
 
   // Diminuer la list d'ingrédientet non toutes les recettes.
-};
-
-// fonction qui gère l'affiche une fois le mot clé tri cliqué
-const searchTriDisplay = () => {
-  //   const TriFullFilteredArray = searchFunction(searchWord);
-
-  console.log(searchWord);
-  // *-------AFFICHAGE DEs RECETTEs CARD
-  //   for (let i = 0; i < TriFullFilteredArray.length; i++) {
-  //     cardDisplayHtml(TriFullFilteredArray[i]);
-  //   }
 };

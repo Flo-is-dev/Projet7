@@ -320,6 +320,7 @@ aside {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .tag-element p {

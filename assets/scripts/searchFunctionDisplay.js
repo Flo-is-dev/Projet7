@@ -7,6 +7,7 @@ let filterDeRecipes = recipes;
 // variable qui va recevoir le mot recherché
 // let search = 50;
 let search;
+
 let NumberRecettes = recipes.length;
 
 const searchedWord = () => {
@@ -18,6 +19,29 @@ const searchedWord = () => {
 const searchDisplay = () => {
   let search = searchedWord();
   testVariable = searchFunction(search);
+  const filteredArrayZero = searchFunction(search);
+
+  //   Filtration de filteredArray grace au tagArrayList
+  //   Fonction qui transform "filteredArrayZero => filteredArray"
+  if (tagArrayList.length !== 0) {
+    // Utiliser la methode filter (comme V2) pour parcourir le tableau de recette. Nuance: search n'est pas une string mais un tableau de string
+    // Pour chacune des recettes , aller chercher dans ingrédients si on a un des élémeents du tableau "tagArrayListIngredients" , puis reproduire avec appliance et ustensiles.
+    // Return True si on trouve sinon False.
+
+    let filteredArray = filteredArrayZero.filter((item) => {
+      const searchTerms = tagArrayList.map((el) => el.toLowerCase());
+      return searchTerms.some((el) =>
+        item.description.toLowerCase().includes(el)
+      );
+    });
+
+    console.log("TADAMM", filteredArray);
+
+    console.log("filteredArrayZero", filteredArrayZero) ||
+      filteredArrayZero.appliance ||
+      filteredArrayZero.ustensiles;
+  }
+
   const filteredArray = searchFunction(search);
   NumberRecettes = filteredArray.length;
   console.log(NumberRecettes);
@@ -92,7 +116,11 @@ searchInput.addEventListener("keyup", () => {
 // Keyup X 3 avec un search , on exploite le (e)
 searchInputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
-  const filteredArray = searchFunction(search);
+  //    Si il n'y a pas de tableau deja trié avec la recherche principale alors j'utilise le tableau initiale recipes
+  let filteredArray;
+  search == undefined
+    ? (filteredArray = recipes)
+    : (filteredArray = searchFunction(search));
   let IAUSet = ingredientsSetFunction(filteredArray);
 
   const resultTriArray = searchTri(e, IAUSet);
