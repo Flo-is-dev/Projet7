@@ -18,31 +18,40 @@ const searchedWord = () => {
 
 const searchDisplay = () => {
   let search = searchedWord();
-  testVariable = searchFunction(search);
+  //   ? variable pour filteredArray à porter globale
+  //   testVariable = searchFunction(search);
   const filteredArrayZero = searchFunction(search);
+  let filteredArray = searchFunction(search);
 
-  //   Filtration de filteredArray grace au tagArrayList
-  //   Fonction qui transform "filteredArrayZero => filteredArray"
+  //   Filtrage de filteredArray grace au tableau tagArrayList (tag cliqués)
+
   if (tagArrayList.length !== 0) {
-    // Utiliser la methode filter (comme V2) pour parcourir le tableau de recette. Nuance: search n'est pas une string mais un tableau de string
-    // Pour chacune des recettes , aller chercher dans ingrédients si on a un des élémeents du tableau "tagArrayListIngredients" , puis reproduire avec appliance et ustensiles.
-    // Return True si on trouve sinon False.
-
-    let filteredArray = filteredArrayZero.filter((item) => {
+    filteredArray = filteredArrayZero.filter((item) => {
       const searchTerms = tagArrayList.map((el) => el.toLowerCase());
-      return searchTerms.some((el) =>
-        item.description.toLowerCase().includes(el)
-      );
+
+      const constResult = searchTerms.some((el) => {
+        const applianceResult = item.appliance.toLowerCase().includes(el);
+        const ustensilesResult = item.ustensils.some((element) =>
+          element.toLowerCase().includes(el)
+        );
+        const ingredientsResultat = item.ingredients.some((element) =>
+          element.ingredient.toLowerCase().includes(el)
+        );
+
+        // console.log("applianceResult", applianceResult);
+        // console.log("ustensilesResult", ustensilesResult);
+        // console.log("ingredientsResultat", ingredientsResultat);
+
+        return applianceResult || ustensilesResult || ingredientsResultat;
+      });
+      console.log(constResult);
+
+      return constResult;
     });
 
     console.log("TADAMM", filteredArray);
-
-    console.log("filteredArrayZero", filteredArrayZero) ||
-      filteredArrayZero.appliance ||
-      filteredArrayZero.ustensiles;
   }
 
-  const filteredArray = searchFunction(search);
   NumberRecettes = filteredArray.length;
   console.log(NumberRecettes);
   numberOfRecette(NumberRecettes);

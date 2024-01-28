@@ -13,7 +13,7 @@ const usentsilesSetFunction = (filteredArray) => {
   // on supprime les doublons avec "Set"
 
   usentsilesSet = [...new Set(usentsilesConcat)];
-  console.log("usentsilesSet", usentsilesSet);
+  //   console.log("usentsilesSet", usentsilesSet);
 
   return usentsilesSet;
 };
@@ -49,7 +49,7 @@ const appareilsSetFunction = (filteredArray) => {
   // on supprime les doublons avec "Set"
 
   appareilsSet = [...new Set(appareilsArray)];
-  console.log("appareilsSet", appareilsSet);
+  //   console.log("appareilsSet", appareilsSet);
 
   return appareilsSet;
 };
@@ -91,7 +91,7 @@ const ingredientsSetFunction = (filteredArray) => {
   // on supprime les doublons avec "Set"
 
   ingredientsSet = [...new Set(ingredientsConcat)];
-  console.log("ingredientsSet", ingredientsSet);
+  //   console.log("ingredientsSet", ingredientsSet);
 
   return ingredientsSet;
 };
