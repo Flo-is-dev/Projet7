@@ -1,15 +1,13 @@
 // ! -- On parcour trois tableau qu'on va concaténer une fois les tris effecrtués sur chacun des tbaleau.
-// !-- on obtien en sortie un tableau avec l'index de l'element trouvé
-
-// TODO (l 61)filteredAllResult doit etre comparé à RECIPES pour ressortir le resultArray
+// !-- on obtien en sortie un tableau avec l'id de l'element trouvé
 
 const searchFunction = (search) => {
   console.log("ON RECHERCHE", search);
 
-  //   on map le tableau en y ajoutant un index pour chaque valeur
+  //   on map le tableau en y ajoutant un id pour chaque valeur
   let resultNameArray = nameArray
-    .map((item, index) => {
-      return { index, value: item };
+    .map((item, id) => {
+      return { id, value: item };
     })
     .filter((item) => {
       return item.value.includes(search);
@@ -17,8 +15,8 @@ const searchFunction = (search) => {
   //   console.log("resultNameArray", resultNameArray);
 
   let resultIngredientArray = ingredientArray
-    .map((item, index) => {
-      return { index, value: item };
+    .map((item, id) => {
+      return { id, value: item };
     })
     .filter((item) => {
       return item.value.some((ingredient) => ingredient.includes(search));
@@ -26,8 +24,8 @@ const searchFunction = (search) => {
   //   console.log("resultIngredientArray =", resultIngredientArray);
 
   let resultDescriptionArray = descriptionArray
-    .map((item, index) => {
-      return { index, value: item };
+    .map((item, id) => {
+      return { id, value: item };
     })
     .filter((item) => {
       return item.value.includes(search);
@@ -42,23 +40,34 @@ const searchFunction = (search) => {
   ];
   console.log("Array GLOBAL", allResult);
 
-  // on utilise filter avec une boucle "for" pour filtrer les index en doublon
-  let filteredAllResult = allResult.filter((current, currentIndex, array) => {
-    // On vérifie si l'index est déjà présent avant l'index courant dans le tableau
-    for (let i = 0; i < currentIndex; i++) {
-      if (array[i].index === current.index) {
+  // on utilise filter avec une boucle "for" pour filtrer les id en doublon
+  let filteredAllResult = allResult.filter((current, currentId, array) => {
+    // On vérifie si l'id est déjà présent avant l'id courant dans le tableau
+    for (let i = 0; i < currentId; i++) {
+      if (array[i].id === current.id) {
         return false;
       }
     }
 
-    // Si l'index n'est pas déjà présent, on le conserve
+    // Si l'id n'est pas déjà présent, on le conserve
     return true;
   });
 
   //   tableau globale après filtre
-  console.log("Filtered allResult", filteredAllResult);
+  console.log("tableau globale après filtre", filteredAllResult);
 
-  return filteredAllResult;
+  //   !---conversion defilteredAllResult en resultArray (meme format)
+
+  //   obtenons les ID sous forme de tableau
+  const keepedIds = filteredAllResult.map((obj) => obj.id);
+
+  // Filtrer filterDeRecipes pour ne conserver que les objets avec des ids présents dans idsToKeep
+  const resultArray = filterDeRecipes.filter((obj) =>
+    keepedIds.includes(obj.id)
+  );
+  console.log(resultArray);
+
+  return resultArray;
 };
 
 // -----------------------
