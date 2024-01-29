@@ -120,9 +120,7 @@ searchInput.addEventListener("keyup", () => {
   }, 500);
 });
 
-// fonction qui joue l'affichage des Tris et apès la 2nd recherche
-
-// Keyup X 3 avec un search , on exploite le (e)
+// Keyup X 3 des Searchbar de Tri
 searchInputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
   //    Si il n'y a pas de tableau deja trié avec la recherche principale alors j'utilise le tableau initiale recipes
@@ -140,10 +138,31 @@ searchInputIngredients.addEventListener("keyup", (e) => {
   triListElementFunction();
 });
 
-// Keyup X 3 avec un search , on exploite le (e)
-// Keyup X 3 avec un search gobale, on exploite le (e)
+searchInputAppareils.addEventListener("keyup", (e) => {
+  let filteredArray;
+  search == undefined
+    ? (filteredArray = recipes)
+    : (filteredArray = searchFunction(search));
+  let IAUSet = appareilsSetFunction(filteredArray);
 
-// ! interdependance?
+  const resultTriArray = searchTri(e, IAUSet);
+
+  displayTriAppareils(resultTriArray);
+  triListElementFunction();
+});
+
+searchInputUstensiles.addEventListener("keyup", (e) => {
+  let filteredArray;
+  search == undefined
+    ? (filteredArray = recipes)
+    : (filteredArray = searchFunction(search));
+  let IAUSet = usentsilesSetFunction(filteredArray);
+
+  const resultTriArray = searchTri(e, IAUSet);
+
+  displayTriUstensiles(resultTriArray);
+  triListElementFunction();
+});
 
 // -----------------------
 // --CROIX QUI REINITIALISE LA SEARCH

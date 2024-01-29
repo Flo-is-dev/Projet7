@@ -165,25 +165,28 @@ aside {
   width: 195px;
   max-height: 315px;
   border-radius: 11px;
-  padding: 16px;
+  padding: 0 16px 16px;
   z-index: 10;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* Masquer la barre de défilement pour les navigateurs basés sur WebKit */
   scrollbar-width: thin;
-  /* Firefox */
   scrollbar-color: transparent transparent;
-  /* Firefox */
 }
 /* Masquer la barre de défilement pour les navigateurs basés sur WebKit */
 .tri-container::-webkit-scrollbar {
   width: 0em;
-  /* Chrome/Safari/Edge */
 }
 
 .tri-container::-webkit-scrollbar-thumb {
   background-color: transparent;
-  /* Chrome/Safari/Edge */
+}
+
+.tri-container-sticky {
+  position: sticky;
+  top: 0%;
+  background: white;
+  z-index: 2;
+  padding-top: 16px;
 }
 
 .tri-search {
