@@ -39,18 +39,14 @@ const searchDisplay = () => {
           element.ingredient.toLowerCase().includes(el)
         );
 
-        // console.log("applianceResult", applianceResult);
-        // console.log("ustensilesResult", ustensilesResult);
-        // console.log("ingredientsResultat", ingredientsResultat);
-
         return applianceResult || ustensilesResult || ingredientsResultat;
       });
-      console.log(constResult);
+      //   console.log("constResult", constResult);
 
       return constResult;
     });
 
-    console.log("TADAM", filteredArray);
+    console.log("filteredArray après filtre TAG", filteredArray);
   }
 
   NumberRecettes = filteredArray.length;

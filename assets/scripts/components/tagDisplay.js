@@ -31,12 +31,14 @@ const tagRemoveFunction = () => {
         (obj) => obj.toLowerCase() != item.innerText.toLowerCase()
       );
       displayTagElement(tagArrayList);
-      console.log(tagArrayList);
 
       //   retrait du tag clické de la liste des mots à injecter
+      //   !---PK on utilise usentsilesSetFunction????
       const filteredArray = searchFunction(search);
       let newArrayTest = usentsilesSetFunction(filteredArray);
-      console.log(newArrayTest);
+      console.log("newArrayTest", newArrayTest);
+      console.log("tagArrayList", tagArrayList);
+      searchDisplay();
     });
   });
 };
