@@ -22,7 +22,7 @@ const displayTagElement = (tagArrayList) => {
 
 // Logique liée à la manipulation des tags, "X"
 
-// Retrait du tag html
+// Retrait du tag html (logic + visuel)
 const tagRemoveFunction = () => {
   const tagElement = document.querySelectorAll(".tag-element");
   tagElement.forEach((item) => {
@@ -33,7 +33,7 @@ const tagRemoveFunction = () => {
       displayTagElement(tagArrayList);
 
       //   retrait du tag clické de la liste des mots à injecter
-      //   !---PK on utilise usentsilesSetFunction????
+      //   TODO---PK on utilise usentsilesSetFunction????
       const filteredArray = searchFunction(search);
       let newArrayTest = usentsilesSetFunction(filteredArray);
       console.log("newArrayTest", newArrayTest);

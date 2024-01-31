@@ -20,16 +20,15 @@ const searchDisplay = () => {
   let search = searchedWord();
   //   ? variable pour filteredArray à porter globale
   //   testVariable = searchFunction(search);
-  const filteredArrayZero = searchFunction(search);
+
   let filteredArray = searchFunction(search);
 
   //   Filtrage de filteredArray grace au tableau tagArrayList (tag cliqués)
 
   if (tagArrayList.length !== 0) {
-    filteredArray = filteredArrayZero.filter((item) => {
+    filteredArray = filteredArray.filter((item) => {
       const searchTerms = tagArrayList.map((el) => el.toLowerCase());
-      // !---PB le code n'est pas excluant mais inclue chacun des tags
-      //  *---Solution? remplacer some() par ever()
+
       const constResult = searchTerms.every((el) => {
         const applianceResult = item.appliance.toLowerCase().includes(el);
         const ustensilesResult = item.ustensils.some((element) =>

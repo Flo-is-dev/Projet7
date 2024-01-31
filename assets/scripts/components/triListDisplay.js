@@ -56,9 +56,9 @@ const triListElementFunction = () => {
   const triListElement = document.querySelectorAll(".tri-list > li");
   triListElement.forEach((item) => {
     item.addEventListener("click", (e) => {
-      //   console.log("Test1", e.target.innerText);
+      //   console.log("Test1", e.target);
       selectedBtn = e.target;
-
+      // TODO----- le toggle ne fonctionne pas, peut etre un affichage ultérieure qui écrase la LI .selected?
       selectedBtn.classList.toggle("selected");
 
       // 2)-----------si pas dans la liste, je l'ajoute, sinon je le retire
