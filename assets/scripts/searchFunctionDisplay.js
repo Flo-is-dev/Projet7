@@ -28,8 +28,9 @@ const searchDisplay = () => {
   if (tagArrayList.length !== 0) {
     filteredArray = filteredArrayZero.filter((item) => {
       const searchTerms = tagArrayList.map((el) => el.toLowerCase());
-
-      const constResult = searchTerms.some((el) => {
+      // !---PB le code n'est pas excluant mais inclue chacun des tags
+      //  *---Solution? remplacer some() par ever()
+      const constResult = searchTerms.every((el) => {
         const applianceResult = item.appliance.toLowerCase().includes(el);
         const ustensilesResult = item.ustensils.some((element) =>
           element.toLowerCase().includes(el)
@@ -49,7 +50,7 @@ const searchDisplay = () => {
       return constResult;
     });
 
-    console.log("TADAMM", filteredArray);
+    console.log("TADAM", filteredArray);
   }
 
   NumberRecettes = filteredArray.length;

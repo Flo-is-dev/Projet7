@@ -130,6 +130,4 @@ const searchTri = (e, IAUSet) => {
   console.log("***TriFilteredArray", TriFilteredArray);
 
   return TriFilteredArray;
-
-  // Diminuer la list d'ingrédientet non toutes les recettes.
 };
