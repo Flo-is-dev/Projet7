@@ -56,16 +56,14 @@ const searchFunction = (search) => {
   //   tableau globale après filtre
   console.log("tableau globale après filtre", filteredAllResult);
 
-  //   !---conversion defilteredAllResult en resultArray (meme format)
-
   //   obtenons les ID sous forme de tableau
   const keepedIds = filteredAllResult.map((obj) => obj.id);
 
   // Filtrer filterDeRecipes pour ne conserver que les objets avec des ids présents dans idsToKeep
   const resultArray = filterDeRecipes.filter((obj) =>
-    keepedIds.includes(obj.id)
+    keepedIds.includes(obj.id - 1)
   );
-  console.log(resultArray);
+  console.log("tableau globale + ajout'ID", resultArray);
 
   return resultArray;
 };

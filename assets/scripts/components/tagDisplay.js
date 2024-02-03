@@ -20,8 +20,6 @@ const displayTagElement = (tagArrayList) => {
   tagRemoveFunction();
 };
 
-// Logique liée à la manipulation des tags, "X"
-
 // Retrait du tag html (logic + visuel)
 const tagRemoveFunction = () => {
   const tagElement = document.querySelectorAll(".tag-element");
@@ -35,8 +33,8 @@ const tagRemoveFunction = () => {
       //   retrait du tag clické de la liste des mots à injecter
       //   TODO---PK on utilise usentsilesSetFunction????
       const filteredArray = searchFunction(search);
-      let newArrayTest = usentsilesSetFunction(filteredArray);
-      console.log("newArrayTest", newArrayTest);
+      //   let newArrayTest = usentsilesSetFunction(filteredArray);
+      //   console.log("newArrayTest", newArrayTest);
       console.log("tagArrayList", tagArrayList);
       searchDisplay();
     });
