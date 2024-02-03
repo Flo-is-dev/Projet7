@@ -247,13 +247,24 @@ aside {
 #tri-search {
   position: absolute;
   top: 50%;
-  left: 90%;
+  left: 78%;
   transform: translate(-50%, -50%);
   font-size: 20px;
   transition: 0.15s ease-out;
   border: none;
   background: none;
   color: var(--main-color-text-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#tri-search span:first-child {
+  cursor: pointer;
+  transform: scale(0.8);
+  color: var(--main-color-black);
+  visibility: visible;
 }
 
 .tri-list {
@@ -288,6 +299,10 @@ aside {
   width: calc(100% + 32px);
   padding: 9px 16px 9px 16px;
   margin-left: -16px;
+}
+
+.list-element:hover {
+  background-color: var(--main-color-yellow);
 }
 
 .list-element i {

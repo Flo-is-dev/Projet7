@@ -32,7 +32,7 @@ const tagRemoveFunction = () => {
 
       //   retrait du tag clické de la liste des mots à injecter
       //   TODO---PK on utilise usentsilesSetFunction????
-      const filteredArray = searchFunction(search);
+      //   const filteredArray = searchFunction(search);
       //   let newArrayTest = usentsilesSetFunction(filteredArray);
       //   console.log("newArrayTest", newArrayTest);
       console.log("tagArrayList", tagArrayList);
