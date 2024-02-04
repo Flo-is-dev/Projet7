@@ -165,11 +165,11 @@ aside {
   width: 195px;
   max-height: 315px;
   border-radius: 11px;
-  padding: 0 16px 16px;
+  padding: 0 16px;
   z-index: 10;
   overflow-y: scroll;
   overflow-x: hidden;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
 /* Masquer la barre de défilement pour les navigateurs basés sur WebKit */
@@ -183,10 +183,12 @@ aside {
 
 .tri-container-sticky {
   position: sticky;
+  width: calc(100% + 32px);
   top: 0%;
   background: white;
   z-index: 2;
-  padding-top: 16px;
+  padding: 16px;
+  transform: translateX(-16px);
 }
 
 .tri-search {
@@ -264,7 +266,7 @@ aside {
   cursor: pointer;
   transform: scale(0.8);
   color: var(--main-color-black);
-  visibility: visible;
+  visibility: hidden;
 }
 
 .tri-list {

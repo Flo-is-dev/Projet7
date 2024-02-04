@@ -109,9 +109,6 @@ searchInput.addEventListener("keyup", () => {
 
     if (search.length >= 3) {
       searchDisplay();
-    } else {
-      console.log("Veuillez taper au moins 3 caractères");
-      cardDisplayHtmlShort();
     }
   }, 500);
 });
@@ -132,6 +129,15 @@ searchInputIngredients.addEventListener("keyup", (e) => {
 
   displayTriIngredients(resultTriArray);
   triListElementFunction();
+
+  // ------------AFFICHAGE de la croix de tri Searchbar
+  const btnRemoveTriSearch = document.querySelectorAll(".removeTri");
+  let triSearchValue = e.target.value;
+  if (triSearchValue) {
+    btnRemoveTriSearch.forEach((item) => (item.style.visibility = "visible"));
+  } else {
+    btnRemoveTriSearch.forEach((item) => (item.style.visibility = "hidden"));
+  }
 });
 
 searchInputAppareils.addEventListener("keyup", (e) => {

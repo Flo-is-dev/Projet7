@@ -13,7 +13,7 @@ const chevronToggleFunction = (e) => {
   e.target.classList.toggle("fa-chevron-up");
   e.target.classList.toggle("fa-chevron-down");
   triSearch.classList.toggle("hidden-bloc");
-  triTag.classList.toggle("hidden-bloc");
+  //   triTag.classList.toggle("hidden-bloc");
   triList.classList.toggle("hidden-bloc");
 };
 
@@ -87,4 +87,17 @@ const triListElementFunction = () => {
       //  5) le nombre de recettes change
     });
   });
+};
+
+// ---------------
+// ------------LOGIC de la croix de tri Searchbar
+// ---------------
+const btnRemoveTriSearch = document.querySelectorAll(".removeTri");
+
+const btnRemoveTriDisplay = () => {
+  btnRemoveTriSearch.forEach((item) =>
+    item.addEventListener("click", (e) => {
+      console.log();
+    })
+  );
 };
