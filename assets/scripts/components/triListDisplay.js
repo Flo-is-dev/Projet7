@@ -60,6 +60,7 @@ const triListElementFunction = () => {
       selectedBtn = e.target;
       // TODO----- le toggle ne fonctionne pas, peut etre un affichage ultérieure qui écrase la LI .selected?
       selectedBtn.classList.toggle("selected");
+      item.classList.toggle("selected");
 
       // 2)-----------si pas dans la liste, je l'ajoute, sinon je le retire
       if (!tagArrayList.includes(selectedBtn.innerText)) {

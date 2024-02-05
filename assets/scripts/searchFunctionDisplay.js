@@ -115,6 +115,21 @@ searchInput.addEventListener("keyup", () => {
 });
 
 // Keyup X 3 des Searchbar de Tri
+const removeTriClickFunction = () => {
+  console.log("je click sur la croix search Tri", inputIngredients.value);
+  btnRemoveTriIngredients.style.visibility = "hidden";
+
+  inputIngredients.value = "";
+  SearchedWord = "";
+  resultTriArray = searchTri(SearchedWord, IAUSet);
+
+  displayTriIngredients(resultTriArray);
+  triListElementFunction();
+};
+
+const btnRemoveTriIngredients = document.getElementById("removeTriIngredients");
+let IAUSet;
+
 inputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
   //    Si il n'y a pas de tableau deja trié avec la recherche principale alors j'utilise le tableau initiale recipes
@@ -123,7 +138,7 @@ inputIngredients.addEventListener("keyup", (e) => {
   search == undefined
     ? (filteredArray = recipes)
     : (filteredArray = searchFunction(search));
-  let IAUSet = ingredientsSetFunction(filteredArray);
+  IAUSet = ingredientsSetFunction(filteredArray);
 
   let resultTriArray = searchTri(SearchedWord, IAUSet);
 
@@ -133,26 +148,17 @@ inputIngredients.addEventListener("keyup", (e) => {
   triListElementFunction();
 
   // ------------AFFICHAGE de la croix de tri Searchbar
-  const btnRemoveTriIngredients = document.getElementById(
-    "removeTriIngredients"
-  );
+
   let triSearchValue = e.target.value;
   if (triSearchValue) {
     btnRemoveTriIngredients.style.visibility = "visible";
   } else {
     btnRemoveTriIngredients.style.visibility = "hidden";
   }
-
-  btnRemoveTriIngredients.addEventListener("click", () => {
-    console.log("ca click input", inputIngredients.value);
-    inputIngredients.value = "";
-    SearchedWord = "";
-    resultTriArray = searchTri(SearchedWord, IAUSet);
-
-    displayTriIngredients(resultTriArray);
-    triListElementFunction();
-  });
 });
+
+// Attacher l'évènement "click" en dehors de la portée de keyup
+btnRemoveTriIngredients.addEventListener("click", removeTriClickFunction);
 
 searchInputAppareils.addEventListener("keyup", (e) => {
   let filteredArray;
