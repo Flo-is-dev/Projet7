@@ -98,6 +98,7 @@ const searchInput = document.getElementById("searchInput");
 const searchInputIngredients = document.getElementById("ingredients");
 const searchInputAppareils = document.getElementById("appareils");
 const searchInputUstensiles = document.getElementById("ustensiles");
+const inputIngredients = document.getElementById("inputIngredients");
 
 searchInput.addEventListener("keyup", () => {
   // On annule le délai precedent si il en existe deja un
@@ -114,16 +115,17 @@ searchInput.addEventListener("keyup", () => {
 });
 
 // Keyup X 3 des Searchbar de Tri
-searchInputIngredients.addEventListener("keyup", (e) => {
+inputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
   //    Si il n'y a pas de tableau deja trié avec la recherche principale alors j'utilise le tableau initiale recipes
   let filteredArray;
+  let SearchedWord = e.target.value;
   search == undefined
     ? (filteredArray = recipes)
     : (filteredArray = searchFunction(search));
   let IAUSet = ingredientsSetFunction(filteredArray);
 
-  const resultTriArray = searchTri(e, IAUSet);
+  let resultTriArray = searchTri(SearchedWord, IAUSet);
 
   // je gère l'affichage du TRI
 
@@ -131,13 +133,25 @@ searchInputIngredients.addEventListener("keyup", (e) => {
   triListElementFunction();
 
   // ------------AFFICHAGE de la croix de tri Searchbar
-  const btnRemoveTriSearch = document.querySelectorAll(".removeTri");
+  const btnRemoveTriIngredients = document.getElementById(
+    "removeTriIngredients"
+  );
   let triSearchValue = e.target.value;
   if (triSearchValue) {
-    btnRemoveTriSearch.forEach((item) => (item.style.visibility = "visible"));
+    btnRemoveTriIngredients.style.visibility = "visible";
   } else {
-    btnRemoveTriSearch.forEach((item) => (item.style.visibility = "hidden"));
+    btnRemoveTriIngredients.style.visibility = "hidden";
   }
+
+  btnRemoveTriIngredients.addEventListener("click", () => {
+    console.log("ca click input", inputIngredients.value);
+    inputIngredients.value = "";
+    SearchedWord = "";
+    resultTriArray = searchTri(SearchedWord, IAUSet);
+
+    displayTriIngredients(resultTriArray);
+    triListElementFunction();
+  });
 });
 
 searchInputAppareils.addEventListener("keyup", (e) => {

@@ -120,8 +120,8 @@ triDisplay(recipes);
 // Jy pass un tab de string et retour la string qui correspond, 2 paramètre , tableau et la chaine de string tapé. 3 Eventlistener
 
 //  fonction qui sera appelée par le EventListener keyUp et qui tri les tableau de Tri "Set"
-const searchTri = (e, IAUSet) => {
-  let searchWord = e.target.value;
+const searchTri = (word, IAUSet) => {
+  let searchWord = word;
   searchWord = searchWord.toLowerCase();
 
   const TriFilteredArray = IAUSet.filter((item) =>
