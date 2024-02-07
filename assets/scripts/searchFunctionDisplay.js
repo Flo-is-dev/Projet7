@@ -192,17 +192,19 @@ searchInputUstensiles.addEventListener("keyup", (e) => {
 
 const reinitSearch = () => {
   // Affichage Input
-  searchInput.value = null;
+  searchInput.value = "";
   // vidange de la section card
   const cardSection = document.querySelector(".card-section");
-  cardSection.innerHTML = null;
+  //   cardSection.innerHTML = null;
   // Affichage des cards
-  recipes.forEach((recipe) => {
-    cardDisplayHtml(recipe);
-  });
+  //   recipes.forEach((recipe) => {
+  //     cardDisplayHtml(recipe);
+  //   });
+
+  searchDisplay();
   //   Affichage du nombre de recette
-  NumberRecettes = recipes.length;
-  numberOfRecette(NumberRecettes);
+  //   NumberRecettes = recipes.length;
+  //   numberOfRecette(NumberRecettes);
   //   Disparition de la croix
   removeSearch.style.display = "none";
 };
