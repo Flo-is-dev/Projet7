@@ -66,8 +66,9 @@ header {
   padding: 0 70px;
 }
 
-.logo-container img {
+.logo-container img:first-child {
   width: 180px;
+  margin-right: 10px;
 }
 
 .txt-container {
@@ -233,7 +234,7 @@ aside {
 }
 
 .tri-search {
-  margin: 16px 0px;
+  margin: 16px 0px 0px;
 }
 
 .tri-search input {

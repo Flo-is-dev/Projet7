@@ -84,8 +84,6 @@ const triListElementFunction = () => {
       searchDisplay();
 
       //   4) l'affichage des cards change
-
-      //  5) le nombre de recettes change
     });
   });
 };
