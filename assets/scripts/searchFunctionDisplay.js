@@ -98,7 +98,6 @@ const searchInput = document.getElementById("searchInput");
 const searchInputIngredients = document.getElementById("ingredients");
 const searchInputAppareils = document.getElementById("appareils");
 const searchInputUstensiles = document.getElementById("ustensiles");
-const inputIngredients = document.getElementById("inputIngredients");
 
 searchInput.addEventListener("keyup", () => {
   // On annule le délai precedent si il en existe deja un
@@ -114,21 +113,38 @@ searchInput.addEventListener("keyup", () => {
   }, 500);
 });
 
-// Keyup X 3 des Searchbar de Tri
-const removeTriClickFunction = () => {
-  console.log("je click sur la croix search Tri", inputIngredients.value);
-  btnRemoveTriIngredients.style.visibility = "hidden";
+// --------------------
+// !Keyup X 3 des Searchbar de Tri
+// --------------------
+const btnRemoveTriIngredients = document.getElementById("removeTriIngredients");
+const btnRemoveTriAppareils = document.getElementById("removeTriAppareils");
+const btnRemoveTriUstensiles = document.getElementById("removeTriUstensiles");
+const inputIngredients = document.getElementById("inputIngredients");
+const inputAppareils = document.getElementById("inputAppareils");
+const inputUstensiles = document.getElementById("inputUstensiles");
+let IAUSet;
 
-  inputIngredients.value = "";
+// fonction globale qui gère la croix des 3 search tri
+const removeTriClickFunction = (btnToRemove, inputField) => {
+  console.log("je click sur la croix search Tri", inputField.value);
+  btnToRemove.style.visibility = "hidden";
+
+  inputField.value = "";
   SearchedWord = "";
   resultTriArray = searchTri(SearchedWord, IAUSet);
 
-  displayTriIngredients(resultTriArray);
+  if (btnToRemove == btnRemoveTriIngredients) {
+    displayTriIngredients(resultTriArray);
+  }
+  if (btnToRemove == btnRemoveTriAppareils) {
+    displayTriAppareils(resultTriArray);
+  }
+  if (btnToRemove == btnRemoveTriUstensiles) {
+    displayTriUstensiles(resultTriArray);
+  }
+
   triListElementFunction();
 };
-
-const btnRemoveTriIngredients = document.getElementById("removeTriIngredients");
-let IAUSet;
 
 inputIngredients.addEventListener("keyup", (e) => {
   //   je met en variable la valeur du tableau globale
@@ -157,33 +173,63 @@ inputIngredients.addEventListener("keyup", (e) => {
   }
 });
 
-// Attacher l'évènement "click" en dehors de la portée de keyup
-btnRemoveTriIngredients.addEventListener("click", removeTriClickFunction);
+btnRemoveTriIngredients.addEventListener("click", () => {
+  removeTriClickFunction(btnRemoveTriIngredients, inputIngredients);
+});
 
 searchInputAppareils.addEventListener("keyup", (e) => {
   let filteredArray;
+  let SearchedWord = e.target.value;
+
   search == undefined
     ? (filteredArray = recipes)
     : (filteredArray = searchFunction(search));
-  let IAUSet = appareilsSetFunction(filteredArray);
+  IAUSet = appareilsSetFunction(filteredArray);
 
-  const resultTriArray = searchTri(e, IAUSet);
+  let resultTriArray = searchTri(SearchedWord, IAUSet);
 
   displayTriAppareils(resultTriArray);
   triListElementFunction();
+
+  // ------------AFFICHAGE de la croix de tri Searchbar
+
+  let triSearchValue = e.target.value;
+  if (triSearchValue) {
+    btnRemoveTriAppareils.style.visibility = "visible";
+  } else {
+    btnRemoveTriAppareils.style.visibility = "hidden";
+  }
+});
+
+btnRemoveTriAppareils.addEventListener("click", () => {
+  removeTriClickFunction(btnRemoveTriAppareils, inputAppareils);
 });
 
 searchInputUstensiles.addEventListener("keyup", (e) => {
   let filteredArray;
+  let SearchedWord = e.target.value;
+
   search == undefined
     ? (filteredArray = recipes)
     : (filteredArray = searchFunction(search));
-  let IAUSet = usentsilesSetFunction(filteredArray);
+  IAUSet = usentsilesSetFunction(filteredArray);
 
-  const resultTriArray = searchTri(e, IAUSet);
+  let resultTriArray = searchTri(SearchedWord, IAUSet);
 
   displayTriUstensiles(resultTriArray);
   triListElementFunction();
+
+  // ------------AFFICHAGE de la croix de tri Searchbar
+
+  let triSearchValue = e.target.value;
+  if (triSearchValue) {
+    btnRemoveTriUstensiles.style.visibility = "visible";
+  } else {
+    btnRemoveTriUstensiles.style.visibility = "hidden";
+  }
+});
+btnRemoveTriUstensiles.addEventListener("click", () => {
+  removeTriClickFunction(btnRemoveTriUstensiles, inputUstensiles);
 });
 
 // -----------------------
