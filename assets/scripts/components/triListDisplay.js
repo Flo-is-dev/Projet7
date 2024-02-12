@@ -59,6 +59,7 @@ const triListElementFunction = () => {
       //   console.log("Test1", e.target);
       selectedBtn = e.target;
       // TODO----- le toggle ne fonctionne pas, peut etre un affichage ultérieure qui écrase la LI .selected?
+
       selectedBtn.classList.toggle("selected");
       item.classList.toggle("selected");
 
@@ -78,8 +79,8 @@ const triListElementFunction = () => {
       }
 
       console.log(tagArrayList);
-      // 3)------------------- logic fonctionnement des tags
-      //   tagRemoveFunction(); retirer car deja dans displayTagElement()
+      // 3)-------------------
+
       // * on peut jouer cette fonction car elle prend en compte le cas ou les tagArrayList sont pleines
       searchDisplay();
 

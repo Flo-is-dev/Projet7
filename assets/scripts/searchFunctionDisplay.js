@@ -23,7 +23,7 @@ const searchDisplay = () => {
 
   let filteredArray = searchFunction(search);
 
-  //   Filtrage de filteredArray grace au tableau tagArrayList (tag cliqués)
+  // *------Filtrage de filteredArray grace au tableau tagArrayList (tag cliqués)
 
   if (tagArrayList.length !== 0) {
     filteredArray = filteredArray.filter((item) => {
@@ -67,9 +67,9 @@ const searchDisplay = () => {
   }
 
   // *-------CROIX QUI s'affiche & REINITIALISE LA SEARCH
-  const removeSearch = document.getElementById("removeSearch");
-  removeSearch.style.display = "block";
-  removeSearch.addEventListener("click", reinitSearch);
+  //   const removeSearch = document.getElementById("removeSearch");
+  //   removeSearch.style.display = "block";
+  //   removeSearch.addEventListener("click", reinitSearch);
 
   // *-------INJECTION DES VALUE DE FILTERARRAY DANS CHAQUE TRI
 
@@ -109,6 +109,17 @@ searchInput.addEventListener("keyup", () => {
 
     if (search.length >= 3) {
       searchDisplay();
+    }
+
+    const removeSearch = document.getElementById("removeSearch");
+    console.log("longeur de search", search.length);
+    if (search.length > 0) {
+      removeSearch.style.display = "block";
+      removeSearch.addEventListener("click", reinitSearch);
+    }
+    if (search.length == 0) {
+      console.log("on repart à zéro", search.length);
+      reinitSearch();
     }
   }, 500);
 });

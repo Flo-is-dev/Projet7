@@ -20,15 +20,36 @@ const usentsilesSetFunction = (filteredArray) => {
 
 // fonction injection html
 
+// const displayTriUstensiles = (usentsilesSet) => {
+//   const triUstensiles = document.querySelector("#ustensiles .tri-list");
+
+//   if (usentsilesSet) {
+//     const tagElements = usentsilesSet.map(
+//       (item) => /*html*/ `<li>
+//             <div class="list-element">${item}<i class="fa-solid fa-circle-xmark"></i></div>
+//             </li>`
+//     );
+//     triUstensiles.innerHTML = tagElements.join("");
+//   } else {
+//     console.log("ERROR: usentsilesSet est undefined");
+//   }
+// };
+
 const displayTriUstensiles = (usentsilesSet) => {
   const triUstensiles = document.querySelector("#ustensiles .tri-list");
 
   if (usentsilesSet) {
-    const tagElements = usentsilesSet.map(
-      (item) => /*html*/ `<li>
-            <div class="list-element">${item}<i class="fa-solid fa-circle-xmark"></i></div>
-            </li>`
-    );
+    const tagElements = usentsilesSet.map((item) => {
+      // Vérifier si l'élément est également présent dans tagArrayList
+      const isSelected = tagArrayList.includes(item);
+      // Si l'élément est présent dans tagArrayList, ajouter la classe "selected", sinon, laisser vide
+      const selectedClass = isSelected ? "selected" : "";
+
+      // Créer l'élément HTML avec la classe "list-element" et éventuellement "selected"
+      return /*html*/ `<li>
+                <div class="list-element ${selectedClass}">${item}<i class="fa-solid fa-circle-xmark"></i></div>
+                </li>`;
+    });
     triUstensiles.innerHTML = tagElements.join("");
   } else {
     console.log("ERROR: usentsilesSet est undefined");
