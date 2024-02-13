@@ -22,7 +22,7 @@ chevron.forEach((item) => {
 });
 
 // --------------------
-// Injection html de l'ensemble des menus de Tri (ingredients/ appareils/ ustensils)
+// *Injection html de l'ensemble des menus de Tri (ingredients/ appareils/ ustensils)
 // --------------------
 
 const triDisplay = (recipe) => {
@@ -42,10 +42,10 @@ const triDisplay = (recipe) => {
 };
 
 // -------------------
-// -----GESTION TAG ARRAY LIST
+// *-----GESTION TAG ARRAY LIST
 // -------------------
 
-// ---affichage des cliques sur les mots clés + Gestion tableau du tableau des tag - tagArrayList
+// ---affichage Gestion tableau du tableau des tag - tagArrayList
 
 let tagArrayList = [];
 let tagArrayListIngredients = [];
@@ -56,24 +56,21 @@ const triListElementFunction = () => {
   const triListElement = document.querySelectorAll(".tri-list > li");
   triListElement.forEach((item) => {
     item.addEventListener("click", (e) => {
-      //   console.log("Test1", e.target);
       selectedBtn = e.target;
-      // TODO----- le toggle ne fonctionne pas, peut etre un affichage ultérieure qui écrase la LI .selected?
 
-      selectedBtn.classList.toggle("selected");
-      item.classList.toggle("selected");
+      // TODO----- a retirer si le toogle n'est plus géré ici?
+      //   selectedBtn.classList.toggle("selected");
+      //   item.classList.toggle("selected");
 
       // 2)-----------si pas dans la liste, je l'ajoute, sinon je le retire
       if (!tagArrayList.includes(selectedBtn.innerText)) {
         tagArrayList.push(selectedBtn.innerText);
         displayTagElement(tagArrayList);
-        // searchDisplay(); retiré car pas d(utilité)
       } else if (tagArrayList.includes(selectedBtn.innerText)) {
         tagArrayList = tagArrayList.filter(
           (obj) => obj != selectedBtn.innerText
         );
         displayTagElement(tagArrayList);
-        // searchDisplay();retiré
       } else {
         console.log("ERROR: tagArrayList");
       }
@@ -83,8 +80,6 @@ const triListElementFunction = () => {
 
       // * on peut jouer cette fonction car elle prend en compte le cas ou les tagArrayList sont pleines
       searchDisplay();
-
-      //   4) l'affichage des cards change
     });
   });
 };
@@ -92,12 +87,12 @@ const triListElementFunction = () => {
 // ---------------
 // ------------LOGIC de la croix de tri Searchbar
 // ---------------
-const btnRemoveTriSearch = document.querySelectorAll(".removeTri");
+// const btnRemoveTriSearch = document.querySelectorAll(".removeTri");
 
-const btnRemoveTriDisplay = () => {
-  btnRemoveTriSearch.forEach((item) =>
-    item.addEventListener("click", (e) => {
-      console.log();
-    })
-  );
-};
+// const btnRemoveTriDisplay = () => {
+//   btnRemoveTriSearch.forEach((item) =>
+//     item.addEventListener("click", (e) => {
+//       console.log();
+//     })
+//   );
+// };

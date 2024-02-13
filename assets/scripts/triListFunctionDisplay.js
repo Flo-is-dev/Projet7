@@ -13,7 +13,7 @@ const usentsilesSetFunction = (filteredArray) => {
   // on supprime les doublons avec "Set"
 
   usentsilesSet = [...new Set(usentsilesConcat)];
-  //   console.log("usentsilesSet", usentsilesSet);
+  console.log("usentsilesSet", usentsilesSet);
 
   return usentsilesSet;
 };
@@ -81,11 +81,15 @@ const displayTriAppareils = (appareilsSet) => {
   const triAppareils = document.querySelector("#appareils .tri-list");
 
   if (appareilsSet) {
-    const tagElements = appareilsSet.map(
-      (item) => /*html*/ `<li>
-              <div class="list-element">${item}<i class="fa-solid fa-circle-xmark"></i></div>
-              </li>`
-    );
+    const tagElements = appareilsSet.map((item) => {
+      const isSelected = tagArrayList.includes(item);
+
+      const selectedClass = isSelected ? "selected" : "";
+
+      return /*html*/ `<li>
+                  <div class="list-element ${selectedClass}">${item}<i class="fa-solid fa-circle-xmark"></i></div>
+                  </li>`;
+    });
     triAppareils.innerHTML = tagElements.join("");
   } else {
     console.log("ERROR: appareilsSet est undefined");
@@ -123,11 +127,15 @@ const displayTriIngredients = (ingredientsSet) => {
   const triIngredients = document.querySelector("#ingredients .tri-list");
 
   if (ingredientsSet) {
-    const tagElements = ingredientsSet.map(
-      (item) => /*html*/ `<li>
-                <div class="list-element">${item}<i class="fa-solid fa-circle-xmark"></i></div>
-                </li>`
-    );
+    const tagElements = ingredientsSet.map((item) => {
+      const isSelected = tagArrayList.includes(item);
+
+      const selectedClass = isSelected ? "selected" : "";
+
+      return /*html*/ `<li>
+                  <div class="list-element ${selectedClass}">${item}<i class="fa-solid fa-circle-xmark"></i></div>
+                  </li>`;
+    });
     triIngredients.innerHTML = tagElements.join("");
   } else {
     console.log("ERROR: ingredientsSet est undefined");

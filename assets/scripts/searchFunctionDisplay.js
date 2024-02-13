@@ -230,7 +230,9 @@ searchInputUstensiles.addEventListener("keyup", (e) => {
   displayTriUstensiles(resultTriArray);
   triListElementFunction();
 
+  // -----------------------
   // ------------AFFICHAGE de la croix de tri Searchbar
+  // -----------------------
 
   let triSearchValue = e.target.value;
   if (triSearchValue) {
@@ -248,20 +250,7 @@ btnRemoveTriUstensiles.addEventListener("click", () => {
 // -----------------------
 
 const reinitSearch = () => {
-  // Affichage Input
   searchInput.value = "";
-  // vidange de la section card
-  const cardSection = document.querySelector(".card-section");
-  //   cardSection.innerHTML = null;
-  // Affichage des cards
-  //   recipes.forEach((recipe) => {
-  //     cardDisplayHtml(recipe);
-  //   });
-
   searchDisplay();
-  //   Affichage du nombre de recette
-  //   NumberRecettes = recipes.length;
-  //   numberOfRecette(NumberRecettes);
-  //   Disparition de la croix
   removeSearch.style.display = "none";
 };
