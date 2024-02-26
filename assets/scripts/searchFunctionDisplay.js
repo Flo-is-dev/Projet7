@@ -1,19 +1,25 @@
 // initialisation du tableau utilisé dans la fonction "usentsilesSet()"
 let usentsilesSet;
-let ingredientAPorteGlobale;
+
 // initaliser "filterDeRecipes" pour avoir un tableau réduit issu des premières recherches
 let filterDeRecipes = recipes;
 
 // variable qui va recevoir le mot recherché
-// let search = 50;
 let search;
 
 let NumberRecettes = recipes.length;
 
 const searchedWord = () => {
   search = searchInput.value;
-  search = search.toLocaleLowerCase().trim();
-  return search;
+  search = search.toLocaleLowerCase().trim().normalize("NFD");
+  return search.replace(/[\u0300-\u036f]/g, "");
+};
+
+const replaceAccent = (text) => {
+  // On "normalise" la chaîne
+  const normalizedText = text.normalize("NFD");
+  // supprimer les diacritiques avec une "expresssion régulière"
+  return normalizedText.replace(/[\u0300-\u036f]/g, "");
 };
 
 const searchDisplay = () => {
@@ -105,7 +111,7 @@ searchInput.addEventListener("keyup", () => {
 
   timeoutSearch = setTimeout(() => {
     searchedWord();
-    console.log(search);
+    console.log("[text tappé]:", search);
 
     if (search.length >= 3) {
       searchDisplay();

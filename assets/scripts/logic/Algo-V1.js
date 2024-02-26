@@ -2,7 +2,7 @@
 // !-- on obtien en sortie un tableau avec l'id de l'element trouvé
 
 const searchFunction = (search) => {
-  console.log("ON RECHERCHE", search);
+  console.log("[RECHERCHE EFFECTUEE SUR]", search);
 
   //   on map le tableau en y ajoutant un id pour chaque valeur
   let resultNameArray = nameArray

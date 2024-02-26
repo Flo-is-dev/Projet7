@@ -1,0 +1,28 @@
+// CHECKBOX qui permet de choisir l'algoithme voulu
+
+// Définir vos deux algorithmes
+function algorithm1() {
+    console.log("Exécution de l'algorithme 1");
+    // Ajoutez le code de votre premier algorithme ici
+}
+
+function algorithm2() {
+    console.log("Exécution de l'algorithme 2");
+    // Ajoutez le code de votre deuxième algorithme ici
+}
+
+// Récupérer la case à cocher et le bouton dans le DOM
+const algorithmSwitch = document.getElementById("algorithmSwitch");
+const runButton = document.getElementById("runButton");
+
+// Ajouter un gestionnaire d'événements au bouton
+runButton.addEventListener("click", function() {
+    // Vérifier l'état de la case à cocher
+    if (algorithmSwitch.checked) {
+        // Si la case est cochée, exécutez l'algorithme 2
+        algorithm2();
+    } else {
+        // Sinon, exécutez l'algorithme 1 par défaut
+        algorithm1();
+    }
+});
