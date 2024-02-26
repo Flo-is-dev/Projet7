@@ -11,15 +11,11 @@ let NumberRecettes = recipes.length;
 
 const searchedWord = () => {
   search = searchInput.value;
-  search = search.toLocaleLowerCase().trim().normalize("NFD");
-  return search.replace(/[\u0300-\u036f]/g, "");
-};
-
-const replaceAccent = (text) => {
   // On "normalise" la chaîne
-  const normalizedText = text.normalize("NFD");
+  search = search.toLocaleLowerCase().trim().normalize("NFD");
   // supprimer les diacritiques avec une "expresssion régulière"
-  return normalizedText.replace(/[\u0300-\u036f]/g, "");
+
+  return search.replace(/[\u0300-\u036f]/g, "");
 };
 
 const searchDisplay = () => {
